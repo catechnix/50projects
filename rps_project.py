@@ -39,5 +39,21 @@ def main():
     for in range(4):
         rps_game()
 
-    print("")
+    print("Do you want to continue? Enter 1; do you want to reset and continue, enter 2, do you want to quit, enter 3")
+
+    wish_number =input()
+    if wish_number == '1':
+        rps_game()
+    elif wish_number == '2':
+        player_score = 0
+        computer_score =0
+        for in range(4):
+        rps_game()
+    elif wish_number == "3":
+        exit()
+
+if __name__ == __main__
+    main()
+
+
     
