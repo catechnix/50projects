@@ -10,7 +10,7 @@ def rps_game():
 
     for user_input in rps:
         try:
-            user_input = input ("Input rock, paper or scissor, r for rock, p for paper, s for scissor ")
+            user_input = input ("Input rock, paper or scissor, r for rock, p for paper, s for scissor:   ")
         except ValueError:
             print("Please try again, I don't understand your input\n")
             continue
