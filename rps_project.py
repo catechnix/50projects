@@ -1,20 +1,21 @@
 import random
-rps = ()
+rps = (r,p,s)
 computer_score = 0
 player_score = 0
-
-def user_input_for_game():
-    user_input = input ("Input rock, paper or scissor, r for rock, p for paper, s for scissor")
-    if user_input in (rps):
-        return user_input
-    else:
-        user_input_for_game()
 
 def computer_choice(): 
      return (random())
 
 def rps_game():
-    x=user_input_for_game()
+
+    for user_input in rps:
+        try:
+            user_input = input ("Input rock, paper or scissor, r for rock, p for paper, s for scissor ")
+        except ValueError:
+            print("Please try again, I don't understand your input\n")
+            continue
+
+    x=user_input
     y=computer_choice()
     if x == y:
         print ("It is a tie, no one gets a point")
@@ -34,9 +35,10 @@ def rps_game():
 
 
 def main():
-    print("Welcome to the Rock, paper and Scissor's game\n")
+    print("Welcome to the Rock, paper and Scissor's game")
+    print("\n")
     
-    for in range(4):
+    for i in range(4):
         rps_game()
 
     print("Do you want to continue? Enter 1; do you want to reset and continue, enter 2, do you want to quit, enter 3")
@@ -47,12 +49,12 @@ def main():
     elif wish_number == '2':
         player_score = 0
         computer_score =0
-        for in range(4):
-        rps_game()
+        for i in range(4):
+            rps_game()
     elif wish_number == "3":
         exit()
 
-if __name__ == __main__
+if __name__ == '__main__':
     main()
 
 
