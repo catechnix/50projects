@@ -9,6 +9,7 @@ def computer_choice():
 def player_choice():  #to get the correct choice
     global choices
     symbol = input ("Input rock, paper or scissor, r for rock, p for paper, s for scissor:   ").lower()
+    print()
     if symbol not in choices:
         print("You didn't enter the correct choice. ")
         return player_choice() # use recursion to get a valid input
@@ -18,7 +19,7 @@ def player_choice():  #to get the correct choice
 def rps_game():
 
     global cChoice, pChoice
-    
+    global player_score, computer_score
 
     pChoice= player_choice()
     cChoice= computer_choice()
@@ -41,26 +42,30 @@ def main():
     print("Welcome to the Rock, paper and Scissor's game!!!")
     print("\n")
 
+    global cChoice, pChoice
+    global player_score, computer_score
+
     while True:
         for i in range(5):
             rps_game()
 
-        print ("Player score {0} and computer score {1} are".format(player_score, computer_score))
+        print ("Player score {0} and computer score {1}".format(player_score, computer_score))
         print() # print an empty line
 
-    print("Do you want to continue? Enter 1; do you want to reset and continue, enter 2, do you want to quit, enter 3")
+        print("Do you want to continue? Enter 1; do you want to reset and continue, enter 2, do you want to quit, enter 3")
 
-    wish_number =int(input())
-    if wish_number == 1:
-        continue
-    elif wish_number == 2:
-        player_score = 0
-        computer_score =0
-        continue
-    else wish_number == 3:
-        break
+        wish_number =int(input())
+        if wish_number == 1:
+            continue
+        elif wish_number == 2:
+            player_score = 0
+            computer_score =0
+            continue
+        else:
+            wish_number == 3
+            print ("OK, Bye!")
+            break
 
-print ("OK, Bye!")
 
 if __name__ == '__main__':
     main()
