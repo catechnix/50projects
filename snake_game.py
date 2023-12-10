@@ -75,9 +75,9 @@ def change_direction(new_direction):
         if direction != "right":
             direction = new_direction
     elif new_direction == 'right':
-        if direction != "left"
+        if direction != "left":
             direction = new_direction
-    elif new_direction == "up"
+    elif new_direction == "up":
         if direction != "down":
             direction == new_direction
     elif new_direction == 'down':
@@ -101,8 +101,7 @@ def check_collisions(snake):
 
 def game_over():
     canvas.delete(ALL)
-    canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2,
-                       font = ('consolas',70), text="GAME OVER, fill = "red", tag = "gameover")
+    canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2,font = ('consolas',70), text="GAME OVER, fill = "red", tag = "gameover")
 
 """ create a window object, create a snake with the defined properties from its class called snake.
 We will create objects for all the defined classes and implement the functions like the following:
