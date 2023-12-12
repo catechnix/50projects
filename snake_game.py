@@ -102,11 +102,11 @@ def check_collisions(snake):
 def game_over():
     canvas.delete(ALL)
     canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2,font = ('consolas',70), text="GAME OVER, fill = "red", tag = "gameover")
-
+    canvas.pack()
 """ create a window object, create a snake with the defined properties from its class called snake.
 We will create objects for all the defined classes and implement the functions like the following:
 """
-window = TK() #create a window object
+window = TK() #create a window object;
 window.title("Snake game") 
 window.resizable(False, False)
 
