@@ -10,7 +10,9 @@ SNAKE_COLOR = "#00FF00"
 FOOD_COLOR = "#FF0000"
 BACKGROUND_COLOR = "#000000"
 
-class snake:
+canvas = Canvas()
+ 
+class Snake:
     def __init__(self):
         self.body_size = BODY_PARTS
         self.coordinates = []
@@ -18,15 +20,15 @@ class snake:
 
         for i in range (0, BODY_PARTS):
             self.coordinates.append([0,0])
-
+        
         for x, y in self.coordinates:
             square = canvas.create_rectangle(x,y,x+SPACE_SIZE,y+SPACE_SIZE,fill=SNAKE_COLOR,tag = 'snake')
             self.squares.append(square)
 
 class Food:
     def __init__(self):
-        x = random.randint(o,(GAME_WIDTH / SPACE_SIZE -1)* SPACE_SIZE)
-        y = random.randint(o,(GAME_HEIGHT / SPACE_SIZE -1)* SPACE_SIZE)
+        x = random.randint(0,(GAME_WIDTH / SPACE_SIZE -1)* SPACE_SIZE)
+        y = random.randint(0,(GAME_HEIGHT / SPACE_SIZE -1)* SPACE_SIZE)
 
         self.coordinates = [x, y]
         canvas.create_oval(x,y, x+SPACE_SIZE, y+SPACE_SIZE, fill = FOOD_COLOR, tag = 'food')
@@ -52,7 +54,7 @@ def next_turn(snake, food):
         global score
         score +=1
 
-        label.config(text="Score:{}".format(score))
+        label.config(text="Score:{}".format(score))      
         canvas.delete("food")
         food = Food()
 
@@ -101,12 +103,12 @@ def check_collisions(snake):
 
 def game_over():
     canvas.delete(ALL)
-    canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2,font = ('consolas',70), text="GAME OVER, fill = "red", tag = "gameover")
+    canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2,font=('consolas',70), text="GAME OVER", fill ="red", tag = "gameover")
     canvas.pack()
 """ create a window object, create a snake with the defined properties from its class called snake.
 We will create objects for all the defined classes and implement the functions like the following:
 """
-window = TK() #create a window object;
+window = Tk() #create a window object
 window.title("Snake game") 
 window.resizable(False, False)
 
@@ -130,7 +132,7 @@ window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 window.bind('<Left>', lambda event: change_direction('left'))
 window.bind('<Right>', lambda event: change_direction('right'))
 window.bind('<Up>', lambda event: change_direction('up'))
-window.bind('<Down',lambda event: change_direction('down'))
+window.bind('<Down>',lambda event: change_direction('down'))
 
 snake = Snake()
 food = Food()
